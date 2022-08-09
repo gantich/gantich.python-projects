@@ -11,8 +11,9 @@ i = 0
 while i < 1:
 	dni = ''.join(random.choice(string.digits) for i in range(8))
 	letra = ''.join(random.choice(string.ascii_letters))
-	username = dni + letra
-	password = ''.join(random.choice(chars) for i in range(8))
+	username = dni # + letra
+	passwordLength = random.randint(6, 10)
+	password = ''.join(random.choice(chars) for i in range(passwordLength))
 	r = requests.post(url, allow_redirects=False, data={
         'captcha': '',
         'step': 'login',
